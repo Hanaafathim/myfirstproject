@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{%block head%}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+{%endblock%}
+{%block body%}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flash-messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+<center>
+   
+<from action="/chat" method="post">
+    <h6 id="from_id" >{{from_name}}</h6> 
+    <h6  id="to_id">{{to_name}}</h6> 
+    <h6 id="room_id">{{room_id}}</h6>
+    <div id="json_data"></div>
+    <div id="chat-box" class="chat-box">
+        <div id="message-container" class="message-container">
+            <div class="message sent" ></div>
+            <div class="message recieved"></div>
+        </div>
+        <div id="chat-container" class="chat-container">
+            <input type="text" id="text_message" class="text" placeholder="message" name="message">
+            <button type="button" id="send" class="btn btn-outline-primary">Send</button>
+            
+        </div>
+    </div>
+</from>
+</center>
+<script src="static\js\connect.js">
+
+</script>
+
+
+
+{%endblock%}

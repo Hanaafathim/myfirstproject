@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{%block head%}
+
+
+{%endblock%}
+{%block body%}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flash-messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<form action="/submit" method="post">
+<center>
+<div class="div_align">
+    <h1>Sigh up</h1>
+    <p><br><br>
+    NAME:<input type="text"  name="username"><br>
+    AGE:<input type="text"   name="age"><br>
+    PHONE:<input type="text"  name="phone"><br>
+    EMAIL:<input type="text"  name="email"><br>
+    PASSWORD:<input type="text"  name="password"><br><br>
+    <br></p>
+    <button type="submit">SIGH UP</button>
+    <a href="/user_login">Login</a>
+</div>
+</center>
+</form>
+
+{%endblock%}

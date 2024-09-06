@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%block head%}
+{%endblock%}
+{%block body%}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flash-messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<form method="post" action="/log_in">
+<center>
+    <table>
+    <tr> 
+    <th><h1>LOGIN</h1></th>
+    </tr>
+    <br>
+    <tr>
+    <td>username: </td>
+    <td><input type="text" name="username" placeholder="username"></td>
+    <br></tr>
+    <tr>
+    <td>password:</td>
+    <td><input type="password" name="password" placeholder="password" ></td>
+    </tr>
+    <br>
+    <br>
+    <tr>
+    <td colspan="2"><button type="submit">Login</button></td>
+    </tr>
+</table>
+
+</center>
+</form>
+
+{%endblock%}

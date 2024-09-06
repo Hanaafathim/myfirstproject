@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{%block head%}
+{%endblock%}
+{%block body%}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flash-messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<br><br><br>
+<center>
+
+<form method="post" action="/chat_list">
+    <p id="room">{{room_id}}</p>
+    <table>
+       
+    {%for to_id in users%}
+    <tr>
+        <td>
+            <button type="submit" id='btn' name="button_value" value="{{to_id.username}}" class="listofchat">{{to_id.username}}</button>
+        </td>
+        
+
+    </tr>
+    {%endfor%}
+    
+</table>
+
+<br>
+</center>
+
+</form>
+
+{%endblock%}
